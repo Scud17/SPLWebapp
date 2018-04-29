@@ -1,0 +1,41 @@
+{% extends 'spots/layout.html' %}
+
+{% block content %}
+<style>
+  .lot{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 5em;
+  }
+  .border{
+    text-align: center;
+    background: purple;
+  }
+  .center {
+    display: grid;
+    padding: 5px;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 15px;
+  }
+  .taken{
+    padding: 3em;
+    background: red;
+  }
+  .not_taken{
+    padding: 3em;
+    background: green;
+  }
+
+</style>
+<h3 class="center-align red lighten-3">{{title}}</h3>
+<div class='lot'>
+  <div class='border'></div>
+    <div class='center'>
+        {% for spot in spots %}
+            <button class='not_taken'>{{spot.spot_Num}}:{{spot.is_taken}}</button>
+        {%endfor%}
+    </div>  
+  <div class='border'></div>
+</div>
+{% endblock %}
+
