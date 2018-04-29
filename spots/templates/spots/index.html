@@ -20,10 +20,14 @@
   .taken{
     padding: 3em;
     background: red;
+    border-color: black;
+    border-style: solid;
   }
   .not_taken{
     padding: 3em;
     background: green;
+    border-color: black;
+    border-style: solid;
   }
 
 </style>
@@ -32,7 +36,11 @@
   <div class='border'></div>
     <div class='center'>
         {% for spot in spots %}
+          {%if not spot.is_taken %}
             <button class='not_taken'>{{spot.spot_Num}}:{{spot.is_taken}}</button>
+            {%else%}
+            <button class='taken'>{{spot.spot_Num}}:{{spot.is_taken}}</button>
+          {% endif %}
         {%endfor%}
     </div>  
   <div class='border'></div>

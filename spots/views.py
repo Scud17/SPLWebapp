@@ -12,4 +12,3 @@ def index(request):
         'spots': spot
         }
     return render(request, 'spots/index.html', context)
-
